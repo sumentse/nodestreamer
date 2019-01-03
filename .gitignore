@@ -1,1 +1,4 @@
-data/Src
+.DS_Store
+node_modules
+dataSrc
+yarn.lock
