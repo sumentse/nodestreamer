@@ -22,13 +22,13 @@ const chartsAPI = (collection) => {
   //This will serve the data, filter, and pagination.
   router.post('/filter', async (req, res)=>{
    
-    const totalDocuments = await collection.countDocuments({});
+    const totalDocuments = await collection.count({...req.body});
     const currentPage = Number(req.query.currentPage) ? Number(req.query.currentPage) : 1;
     const pageSize = Number(req.query.pageSize) ? Number(req.query.pageSize) : 300;
     const maxPage = Number(req.query.maxPage) ? Number(req.query.maxPage) : 10;
 
     const paginationObj = pagination(totalDocuments, currentPage, pageSize, maxPage);
-    console.log(currentPage,  pagination.currentPage)
+
     if(currentPage > paginationObj.currentPage) {
       res.sendStatus(404).end();
     } else {
