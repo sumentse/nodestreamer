@@ -8,8 +8,9 @@ module.exports = {
 				exclude: /node_modules/,
 				options: {
 					presets: [
-						['env',{targets:{browsers:['last 2 versions']}}]
-					]
+						['@babel/preset-env',{targets:{browsers:['last 2 versions']}}],
+					],
+					plugins: ['@babel/plugin-proposal-object-rest-spread']
 				}
 			}
 		]
