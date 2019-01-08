@@ -17,6 +17,7 @@ const chartsAPI = (collection) => {
       lp
     });
 
+    
   });
 
   //This will serve the data, filter, and pagination.

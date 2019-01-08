@@ -83,14 +83,18 @@ const MongoClient = mongodb.MongoClient;
             
             //checks if collection exist otherwise create a new one
             if(!hasCollections) {
+
                 console.log(`The collection '${collectionName}' does not exist. Creating a new one.`);
                 await dbo.createCollection(collectionName);
                 console.log(`The collection '${collectionName}' was created`);
                 exampleDB = dbo.collection(collectionName);
                 readCSV();
+
             } else {
+
                 exampleDB = dbo.collection(collectionName);
                 startServer();
+                
             }
             
         };
@@ -101,6 +105,7 @@ const MongoClient = mongodb.MongoClient;
     } catch (err) {
 
         console.log(err);
+        client.close();
         server.close();
 
     }
